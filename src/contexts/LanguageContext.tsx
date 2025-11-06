@@ -27,19 +27,19 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     loadTranslations();
   }, []);
 
-  const loadTranslations = async () => {
-    const { data, error } = await supabase
-      .from('translations')
-      .select('*');
+  // const loadTranslations = async () => {
+  //   const { data, error } = await supabase
+  //     .from('translations')
+  //     .select('*');
 
-    if (data && !error) {
-      const translationsMap: Record<string, Translation> = {};
-      data.forEach((item) => {
-        translationsMap[item.key] = item;
-      });
-      setTranslations(translationsMap);
-    }
-  };
+  //   if (data && !error) {
+  //     const translationsMap: Record<string, Translation> = {};
+  //     data.forEach((item) => {
+  //       translationsMap[item.key] = item;
+  //     });
+  //     setTranslations(translationsMap);
+  //   }
+  // };
 
   const t = (key: string): string => {
     return translations[key]?.[language] || key;
